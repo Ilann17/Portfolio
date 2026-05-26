@@ -458,15 +458,20 @@
 
     <span class="sidebar-section-label">Navigation</span>
 
-    <a href="#accueil" class="sidebar-link active" onclick="closeSidebar()">
+    <!-- LIEN — Accueil : pointe vers index.html -->
+    <a href="./index.html" class="sidebar-link active" onclick="closeSidebar()">
       <span class="sidebar-link-icon">🏠</span>
       <span class="sidebar-link-text">Accueil</span>
     </a>
-    <a href="#competences" class="sidebar-link" onclick="closeSidebar()">
+
+    <!-- LIEN — Compétences : remplace "competences.html" par le nom de ton fichier -->
+    <a href="./competences.html" class="sidebar-link" onclick="closeSidebar()">
       <span class="sidebar-link-icon">🛠️</span>
       <span class="sidebar-link-text">Compétences</span>
     </a>
-    <a href="#projets" class="sidebar-link" onclick="closeSidebar()">
+
+    <!-- LIEN — Projets : remplace "projets.html" par le nom de ton fichier -->
+    <a href="./projets.html" class="sidebar-link" onclick="closeSidebar()">
       <span class="sidebar-link-icon">📁</span>
       <span class="sidebar-link-text">Projets</span>
     </a>
@@ -474,19 +479,26 @@
     <div class="sidebar-divider"></div>
     <span class="sidebar-section-label">Parcours</span>
 
-    <a href="#experiences" class="sidebar-link" onclick="closeSidebar()">
+    <!-- LIEN — Expériences : remplace "experiences.html" par le nom de ton fichier -->
+    <a href="./experiences.html" class="sidebar-link" onclick="closeSidebar()">
       <span class="sidebar-link-icon">💼</span>
       <span class="sidebar-link-text">Expériences / Stages</span>
     </a>
-    <a href="#grille" class="sidebar-link" onclick="closeSidebar()">
+
+    <!-- LIEN — Grille de compétences : remplace "grille.html" par le nom de ton fichier -->
+    <a href="./grille.html" class="sidebar-link" onclick="closeSidebar()">
       <span class="sidebar-link-icon">📊</span>
       <span class="sidebar-link-text">Grille de compétences</span>
     </a>
-    <a href="#veille" class="sidebar-link" onclick="closeSidebar()">
+
+    <!-- LIEN — Veille technologique : remplace "veilleTechnologique.html" par le nom de ton fichier -->
+    <a href="./veilleTechnologique.html" class="sidebar-link" onclick="closeSidebar()">
       <span class="sidebar-link-icon">🔍</span>
       <span class="sidebar-link-text">Veille technologique</span>
     </a>
-    <a href="#certifications" class="sidebar-link" onclick="closeSidebar()">
+
+    <!-- LIEN — Certifications : remplace "certifications.html" par le nom de ton fichier -->
+    <a href="./certifications.html" class="sidebar-link" onclick="closeSidebar()">
       <span class="sidebar-link-icon">🏅</span>
       <span class="sidebar-link-text">Certifications</span>
     </a>
@@ -494,7 +506,8 @@
     <div class="sidebar-divider"></div>
     <span class="sidebar-section-label">Autres</span>
 
-    <a href="#contact" class="sidebar-link" onclick="closeSidebar()">
+    <!-- LIEN — Contact : pointe vers la section #contact de index.html -->
+    <a href="./index.html#contact" class="sidebar-link" onclick="closeSidebar()">
       <span class="sidebar-link-icon">✉️</span>
       <span class="sidebar-link-text">Contact</span>
     </a>
@@ -551,229 +564,7 @@
   </div> -->
 </section>
 
-<!-- ─── COMPÉTENCES ─── -->
-<!-- <section id="competences">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Compétences</p>
-    <h2 class="section-title reveal">Ce que je <em>sais faire</em></h2>
-    <p class="section-sub reveal">Les savoir-faire et outils acquis tout au long de ma formation.</p>
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-icon">🛠️</div>
-        <div class="skill-title">[Compétence 1]</div>
-        <div class="skill-desc">Description courte de cette compétence et de comment tu l'as développée.</div>
-        <div class="skill-tags"><span class="tag tag-orange">Outil A</span><span class="tag tag-gray">Outil B</span></div>
-      </div>
-      <div class="skill-card blue-accent reveal">
-        <div class="skill-icon">💡</div>
-        <div class="skill-title">[Compétence 2]</div>
-        <div class="skill-desc">Description courte de cette compétence et de comment tu l'as développée.</div>
-        <div class="skill-tags"><span class="tag tag-blue">Outil C</span><span class="tag tag-gray">Outil D</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">📊</div>
-        <div class="skill-title">[Compétence 3]</div>
-        <div class="skill-desc">Description courte de cette compétence et de comment tu l'as développée.</div>
-        <div class="skill-tags"><span class="tag tag-orange">Outil E</span><span class="tag tag-gray">Outil F</span></div>
-      </div>
-      <div class="skill-card blue-accent reveal">
-        <div class="skill-icon">🔗</div>
-        <div class="skill-title">[Compétence 4]</div>
-        <div class="skill-desc">Description courte de cette compétence et de comment tu l'as développée.</div>
-        <div class="skill-tags"><span class="tag tag-blue">Outil G</span><span class="tag tag-gray">Outil H</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">📝</div>
-        <div class="skill-title">[Compétence 5]</div>
-        <div class="skill-desc">Description courte de cette compétence et de comment tu l'as développée.</div>
-        <div class="skill-tags"><span class="tag tag-orange">Outil I</span><span class="tag tag-gray">Outil J</span></div>
-      </div>
-      <div class="skill-card blue-accent reveal">
-        <div class="skill-icon">🌐</div>
-        <div class="skill-title">[Compétence 6]</div>
-        <div class="skill-desc">Description courte de cette compétence et de comment tu l'as développée.</div>
-        <div class="skill-tags"><span class="tag tag-blue">Outil K</span><span class="tag tag-gray">Outil L</span></div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
-<!-- ─── PROJETS ─── -->
-<!-- <section id="projets">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Projets</p>
-    <h2 class="section-title reveal">Mes <span class="blue-em">réalisations</span></h2>
-    <p class="section-sub reveal">Quelques projets réalisés durant ma formation.</p>
-    <div class="projects-grid">
-      <div class="project-card reveal">
-        <div class="project-thumb thumb-orange">🚀</div>
-        <div class="project-body">
-          <div class="project-cat">Projet académique</div>
-          <div class="project-name">[Nom du projet 1]</div>
-          <div class="project-desc">Description du projet : contexte, objectifs et résultats obtenus.</div>
-          <div class="skill-tags"><span class="tag tag-orange">Compétence</span><span class="tag tag-gray">Outil</span></div>
-        </div>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-thumb thumb-blue">💻</div>
-        <div class="project-body">
-          <div class="project-cat">Projet personnel</div>
-          <div class="project-name">[Nom du projet 2]</div>
-          <div class="project-desc">Description du projet : contexte, objectifs et résultats obtenus.</div>
-          <div class="skill-tags"><span class="tag tag-blue">Compétence</span><span class="tag tag-gray">Outil</span></div>
-        </div>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-thumb thumb-mix">📱</div>
-        <div class="project-body">
-          <div class="project-cat">Projet de groupe</div>
-          <div class="project-name">[Nom du projet 3]</div>
-          <div class="project-desc">Description du projet : contexte, objectifs et résultats obtenus.</div>
-          <div class="skill-tags"><span class="tag tag-orange">Compétence</span><span class="tag tag-blue">Outil</span></div>
-        </div>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-thumb thumb-dark">📂</div>
-        <div class="project-body">
-          <div class="project-cat">Projet académique</div>
-          <div class="project-name">[Nom du projet 4]</div>
-          <div class="project-desc">Description du projet : contexte, objectifs et résultats obtenus.</div>
-          <div class="skill-tags"><span class="tag tag-gray">Compétence</span><span class="tag tag-blue">Outil</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- ─── EXPÉRIENCES ─── -->
-<!-- <section id="experiences">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Parcours</p>
-    <h2 class="section-title reveal">Expériences & <em>Stages</em></h2>
-    <p class="section-sub reveal">Les expériences professionnelles acquises durant ma formation.</p>
-    <div class="exp-list">
-      <div class="exp-card reveal">
-        <div class="exp-date"><strong>[Mois AAAA]</strong>[Durée]<br>Stage</div>
-        <div>
-          <div class="exp-title">[Intitulé du poste / mission]</div>
-          <div class="exp-company">[Nom de l'entreprise] · [Ville]</div>
-          <div class="exp-desc">Description des missions effectuées, des outils utilisés et des compétences développées lors de ce stage.</div>
-        </div>
-      </div>
-      <div class="exp-card reveal">
-        <div class="exp-date"><strong>[Mois AAAA]</strong>[Durée]<br>Stage</div>
-        <div>
-          <div class="exp-title">[Intitulé du poste / mission]</div>
-          <div class="exp-company">[Nom de l'entreprise] · [Ville]</div>
-          <div class="exp-desc">Description des missions effectuées, des outils utilisés et des compétences développées lors de ce stage.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- ─── GRILLE DE COMPÉTENCES ─── -->
-<!-- <section id="grille">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Référentiel</p>
-    <h2 class="section-title reveal">Grille de <em>compétences</em></h2>
-    <p class="section-sub reveal">Évaluation de mes compétences selon le référentiel BTS.</p>
-    <div class="grille-table-wrap reveal">
-      <table class="grille-table">
-        <thead>
-          <tr>
-            <th>Compétence</th>
-            <th>Domaine</th>
-            <th>Niveau</th>
-            <th>Contexte d'acquisition</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>[Compétence A]</td>
-            <td><span class="tag tag-orange">Domaine 1</span></td>
-            <td><span class="niveau"><span class="niveau-dot on-o"></span><span class="niveau-dot on-o"></span><span class="niveau-dot on-o"></span><span class="niveau-dot"></span><span class="niveau-dot"></span></span></td>
-            <td>Cours / Projet / Stage</td>
-          </tr>
-          <tr>
-            <td>[Compétence B]</td>
-            <td><span class="tag tag-blue">Domaine 2</span></td>
-            <td><span class="niveau"><span class="niveau-dot on-b"></span><span class="niveau-dot on-b"></span><span class="niveau-dot on-b"></span><span class="niveau-dot on-b"></span><span class="niveau-dot"></span></span></td>
-            <td>Cours / Projet / Stage</td>
-          </tr>
-          <tr>
-            <td>[Compétence C]</td>
-            <td><span class="tag tag-orange">Domaine 1</span></td>
-            <td><span class="niveau"><span class="niveau-dot on-o"></span><span class="niveau-dot on-o"></span><span class="niveau-dot"></span><span class="niveau-dot"></span><span class="niveau-dot"></span></span></td>
-            <td>Cours / Projet</td>
-          </tr>
-          <tr>
-            <td>[Compétence D]</td>
-            <td><span class="tag tag-gray">Domaine 3</span></td>
-            <td><span class="niveau"><span class="niveau-dot on-o"></span><span class="niveau-dot on-o"></span><span class="niveau-dot on-o"></span><span class="niveau-dot on-o"></span><span class="niveau-dot on-o"></span></span></td>
-            <td>Stage / Projet personnel</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section> -->
-
-<!-- ─── VEILLE TECHNOLOGIQUE ─── -->
-<!-- <section id="veille">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Veille</p>
-    <h2 class="section-title reveal">Veille <em>technologique</em></h2>
-    <p class="section-sub reveal">Les sujets que je suis et les sources que je consulte régulièrement.</p>
-    <div class="veille-grid">
-      <div class="veille-card reveal">
-        <div class="veille-cat">[Thème 1]</div>
-        <div class="veille-title">[Titre de l'article ou sujet suivi]</div>
-        <div class="veille-desc">Résumé de la veille : ce que tu as appris, pourquoi c'est pertinent pour ton domaine.</div>
-        <div class="veille-date">Source : [Site] · [Date]</div>
-      </div>
-      <div class="veille-card reveal">
-        <div class="veille-cat blue">[Thème 2]</div>
-        <div class="veille-title">[Titre de l'article ou sujet suivi]</div>
-        <div class="veille-desc">Résumé de la veille : ce que tu as appris, pourquoi c'est pertinent pour ton domaine.</div>
-        <div class="veille-date">Source : [Site] · [Date]</div>
-      </div>
-      <div class="veille-card reveal">
-        <div class="veille-cat">[Thème 3]</div>
-        <div class="veille-title">[Titre de l'article ou sujet suivi]</div>
-        <div class="veille-desc">Résumé de la veille : ce que tu as appris, pourquoi c'est pertinent pour ton domaine.</div>
-        <div class="veille-date">Source : [Site] · [Date]</div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- ─── CERTIFICATIONS ─── -->
-<!-- <section id="certifications">
-  <div class="section-inner">
-    <p class="section-eyebrow reveal">Certifications</p>
-    <h2 class="section-title reveal">Mes <em>certifications</em></h2>
-    <p class="section-sub reveal">Les certifications et attestations obtenues durant ma formation.</p>
-    <div class="cert-grid">
-      <div class="cert-card reveal">
-        <div class="cert-icon">🏅</div>
-        <div><div class="cert-name">[Nom de la certification]</div><div class="cert-org">[Organisme]</div><div class="cert-date">[Mois AAAA]</div></div>
-      </div>
-      <div class="cert-card blue reveal">
-        <div class="cert-icon">📜</div>
-        <div><div class="cert-name">[Nom de la certification]</div><div class="cert-org">[Organisme]</div><div class="cert-date">[Mois AAAA]</div></div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-icon">🎖️</div>
-        <div><div class="cert-name">[Nom de la certification]</div><div class="cert-org">[Organisme]</div><div class="cert-date">[Mois AAAA]</div></div>
-      </div>
-      <div class="cert-card blue reveal">
-        <div class="cert-icon">✅</div>
-        <div><div class="cert-name">[Nom de la certification]</div><div class="cert-org">[Organisme]</div><div class="cert-date">[Mois AAAA]</div></div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <!-- ─── CONTACT ─── -->
 <section id="contact">
