@@ -410,27 +410,44 @@
   }
   .btn-form:hover { background: #CF531A; transform: translateY(-1px); }
 
-  /* ─── CORRECTIF Z-INDEX SIDEBAR ─── */
-  /* La sidebar doit s'afficher par-dessus la navbar et le contenu */
-  .sidebar {
-    z-index: 1100 !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .sidebar-overlay {
-    z-index: 1050 !important;
-  }
+  /* ─── NAVBAR LINKS ─── */
   #navbar {
-    z-index: 1000 !important;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 32px;
+    height: 56px;
+    background: rgba(250,250,247,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cream-3);
+    z-index: 100;
   }
-  /* La nav prend tout l'espace disponible, le footer colle en bas */
-  .sidebar-nav {
-    flex: 1 !important;
-    overflow-y: auto !important;
+  #navbar a:first-child {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: 12px;
   }
-  .sidebar-footer {
-    margin-top: auto !important;
-    flex-shrink: 0 !important;
+  #navbar .sep {
+    color: var(--cream-3);
+    margin-right: 8px;
+  }
+  #navbar a:not(:first-child) {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ink-2);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 100px;
+    transition: background 0.15s, color 0.15s;
+  }
+  #navbar a:not(:first-child):hover {
+    background: var(--cream-2);
+    color: var(--ink);
   }
 
   /* ─── RESPONSIVE (page-specific) ─── */
@@ -444,87 +461,17 @@
 </head>
 <body>
 
-<!-- ─── OVERLAY ─── -->
-<div class="sidebar-overlay" id="overlay"></div>
-
-<!-- ─── SIDEBAR ─── -->
-<aside class="sidebar" id="sidebar" aria-label="Navigation latérale">
-  <div class="sidebar-header">
-    <a href="#accueil" class="sidebar-logo" onclick="closeSidebar()">I<span>.</span>S</a>
-    <button class="sidebar-close" onclick="closeSidebar()" aria-label="Fermer">✕</button>
-  </div>
-
-  <nav class="sidebar-nav">
-
-    <span class="sidebar-section-label">Navigation</span>
-
-    <!-- LIEN — Accueil : pointe vers index.html -->
-    <a href="./index.html" class="sidebar-link active" onclick="closeSidebar()">
-      <span class="sidebar-link-icon">🏠</span>
-      <span class="sidebar-link-text">Accueil</span>
-    </a>
-
-    <!-- LIEN — Compétences : remplace "competences.html" par le nom de ton fichier -->
-    <a href="./competences.html" class="sidebar-link" onclick="closeSidebar()">
-      <span class="sidebar-link-icon">🛠️</span>
-      <span class="sidebar-link-text">Compétences</span>
-    </a>
-
-    <!-- LIEN — Projets : remplace "projets.html" par le nom de ton fichier -->
-    <a href="./projets.html" class="sidebar-link" onclick="closeSidebar()">
-      <span class="sidebar-link-icon">📁</span>
-      <span class="sidebar-link-text">Projets</span>
-    </a>
-
-    <div class="sidebar-divider"></div>
-    <span class="sidebar-section-label">Parcours</span>
-
-    <!-- LIEN — Expériences : remplace "experiences.html" par le nom de ton fichier -->
-    <a href="./experiences.html" class="sidebar-link" onclick="closeSidebar()">
-      <span class="sidebar-link-icon">💼</span>
-      <span class="sidebar-link-text">Expériences / Stages</span>
-    </a>
-
-    <!-- LIEN — Grille de compétences : remplace "grille.html" par le nom de ton fichier -->
-    <a href="./grille.html" class="sidebar-link" onclick="closeSidebar()">
-      <span class="sidebar-link-icon">📊</span>
-      <span class="sidebar-link-text">Grille de compétences</span>
-    </a>
-
-    <!-- LIEN — Veille technologique : remplace "veilleTechnologique.html" par le nom de ton fichier -->
-    <a href="./veilleTechnologique.html" class="sidebar-link" onclick="closeSidebar()">
-      <span class="sidebar-link-icon">🔍</span>
-      <span class="sidebar-link-text">Veille technologique</span>
-    </a>
-
-    <!-- LIEN — Certifications : remplace "certifications.html" par le nom de ton fichier -->
-    <a href="./certifications.html" class="sidebar-link" onclick="closeSidebar()">
-      <span class="sidebar-link-icon">🏅</span>
-      <span class="sidebar-link-text">Certifications</span>
-    </a>
-
-    <div class="sidebar-divider"></div>
-    <span class="sidebar-section-label">Autres</span>
-
-    <!-- LIEN — Contact : pointe vers la section #contact de index.html -->
-    <a href="./index.html#contact" class="sidebar-link" onclick="closeSidebar()">
-      <span class="sidebar-link-icon">✉️</span>
-      <span class="sidebar-link-text">Contact</span>
-    </a>
-
-  </nav>
-
-  <div class="sidebar-footer">
-    BTS SIO<br>Promotion 2024–2026
-  </div>
-</aside>
-
 <!-- ─── NAVBAR ─── -->
 <nav id="navbar">
-  <a href="#accueil" class="nav-logo">I<span>.</span>S</a>
-  <button class="nav-burger" id="burgerBtn" onclick="toggleSidebar()" aria-label="Ouvrir le menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="./index.html">I.S</a>
+  <span class="sep">|</span>
+  <a href="./competences.html">Compétences</a>
+  <a href="./projets.html">Projets</a>
+  <a href="./experiences.html">Expériences</a>
+  <a href="./grille.html">Grille de compétences</a>
+  <a href="./veilleTechnologique.html">Veille technologique</a>
+  <a href="./certifications.html">Certifications</a>
+  <a href="./index.html#contact">Contact</a>
 </nav>
 
 <!-- ─── ACCUEIL ─── -->
@@ -605,75 +552,15 @@
   <div class="footer-copy">Portfolio BTS · 2024–2026</div>
 </footer>
 
+
 <script>
-  /* ─ Sidebar ─ */
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('overlay');
-  const burger  = document.getElementById('burgerBtn');
-
-  function openSidebar()   { sidebar.classList.add('active'); overlay.classList.add('active'); burger.classList.add('active'); document.body.classList.add('sidebar-open'); }
-  function closeSidebar()  { sidebar.classList.remove('active'); overlay.classList.remove('active'); burger.classList.remove('active'); document.body.classList.remove('sidebar-open'); }
-  function toggleSidebar() { sidebar.classList.contains('active') ? closeSidebar() : openSidebar(); }
-
-  overlay.addEventListener('click', closeSidebar);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
-
-  /* ─ Navbar shadow ─ */
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
-
-  /* ─ Active sidebar link on scroll ─ */
-  const sections  = document.querySelectorAll('section[id]');
-  const sideLinks = document.querySelectorAll('.sidebar-link');
-
-  new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        sideLinks.forEach(l => l.classList.remove('active'));
-        const a = document.querySelector(`.sidebar-link[href="#${entry.target.id}"]`);
-        if (a) a.classList.add('active');
-      }
-    });
-  }, { threshold: 0.35 }).observe;
-
-  sections.forEach(s => {
-    new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          sideLinks.forEach(l => l.classList.remove('active'));
-          const a = document.querySelector(`.sidebar-link[href="#${entry.target.id}"]`);
-          if (a) a.classList.add('active');
-        }
-      });
-    }, { threshold: 0.35 }).observe(s);
-  });
-
   /* ─ Reveal on scroll ─ */
-  const reveals = document.querySelectorAll('.reveal');
-  new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 70);
-      }
-    });
-  }, { threshold: 0.1 }).observe;
-
-  reveals.forEach(el => {
+  document.querySelectorAll('.reveal').forEach(el => {
     new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 }).observe(el);
-  });
-
-  /* ─ Smooth scroll ─ */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-    });
   });
 </script>
 

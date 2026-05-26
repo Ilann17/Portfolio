@@ -342,83 +342,62 @@
     .pdf-controls-right .pdf-zoom-level { display: none; }
     .pdf-thumbnails { display: none; }
   }
+
+  /* ─── NAVBAR LINKS ─── */
+  #navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 32px;
+    height: 56px;
+    background: rgba(250,250,247,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cream-3);
+    z-index: 100;
+  }
+  #navbar a:first-child {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: 12px;
+  }
+  #navbar .sep {
+    color: var(--cream-3);
+    margin-right: 8px;
+  }
+  #navbar a:not(:first-child) {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ink-2);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 100px;
+    transition: background 0.15s, color 0.15s;
+  }
+  #navbar a:not(:first-child):hover {
+    background: var(--cream-2);
+    color: var(--ink);
+  }
+
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════
-     OVERLAY + SIDEBAR (copier-coller identique sur chaque page)
-     ═══════════════════════════════════════════════════ -->
-
-<div class="sidebar-overlay" id="overlay"></div>
-
-<aside class="sidebar" id="sidebar" aria-label="Navigation latérale">
-  <div class="sidebar-header">
-    <a href="index.html" class="sidebar-logo" onclick="closeSidebar()">I<span>.</span>S</a>
-    <button class="sidebar-close" onclick="closeSidebar()" aria-label="Fermer">✕</button>
-  </div>
-
-  <nav class="sidebar-nav">
-
-    <span class="sidebar-section-label">Navigation</span>
-
-    <a href="index.html" class="sidebar-link">
-      <span class="sidebar-link-icon">🏠</span>
-      <span class="sidebar-link-text">Accueil</span>
-    </a>
-    <a href="competences.html" class="sidebar-link">
-      <span class="sidebar-link-icon">🛠️</span>
-      <span class="sidebar-link-text">Compétences</span>
-    </a>
-    <a href="projets.html" class="sidebar-link">
-      <span class="sidebar-link-icon">📁</span>
-      <span class="sidebar-link-text">Projets</span>
-    </a>
-
-    <div class="sidebar-divider"></div>
-    <span class="sidebar-section-label">Parcours</span>
-
-    <a href="experiences.html" class="sidebar-link">
-      <span class="sidebar-link-icon">💼</span>
-      <span class="sidebar-link-text">Expériences / Stages</span>
-    </a>
-    <a href="grille.html" class="sidebar-link">
-      <span class="sidebar-link-icon">📊</span>
-      <span class="sidebar-link-text">Grille de compétences</span>
-    </a>
-    <a href="./veilleTechnologique.html" class="sidebar-link active">
-      <span class="sidebar-link-icon">🔍</span>
-      <span class="sidebar-link-text">Veille technologique</span>
-    </a>
-    <a href="certifications.html" class="sidebar-link">
-      <span class="sidebar-link-icon">🏅</span>
-      <span class="sidebar-link-text">Certifications</span>
-    </a>
-
-    <div class="sidebar-divider"></div>
-    <span class="sidebar-section-label">Autres</span>
-
-    <a href="./index.html#contact" class="sidebar-link">
-      <span class="sidebar-link-icon">✉️</span>
-      <span class="sidebar-link-text">Contact</span>
-    </a>
-
-  </nav>
-
-  <div class="sidebar-footer">
-    BTS [Spécialité]<br>Promotion 2024–2026
-  </div>
-</aside>
-
-<!-- ═══════════════════════════════════════════════════
-     NAVBAR (identique sur chaque page)
-     ═══════════════════════════════════════════════════ -->
-
+<!-- ─── NAVBAR ─── -->
 <nav id="navbar">
-  <a href="index.html" class="nav-logo">I<span>.</span>S</a>
-  <button class="nav-burger" id="burgerBtn" onclick="toggleSidebar()" aria-label="Ouvrir le menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="./index.html">I.S</a>
+  <span class="sep">|</span>
+  <a href="./competences.html">Compétences</a>
+  <a href="./projets.html">Projets</a>
+  <a href="./experiences.html">Expériences</a>
+  <a href="./grille.html">Grille de compétences</a>
+  <a href="./veilleTechnologique.html">Veille technologique</a>
+  <a href="./certifications.html">Certifications</a>
+  <a href="./index.html#contact">Contact</a>
 </nav>
 
 <!-- ═══════════════════════════════════════════════════
@@ -524,265 +503,13 @@
      JAVASCRIPT (copier-coller identique sur chaque page)
      ═══════════════════════════════════════════════════ -->
 <script>
-  /* ─ Sidebar ─ */
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('overlay');
-  const burger  = document.getElementById('burgerBtn');
-
-  function openSidebar()   {
-    sidebar.classList.add('active');
-    overlay.classList.add('active');
-    burger.classList.add('active');
-    document.body.classList.add('sidebar-open');
-  }
-  function closeSidebar()  {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-    burger.classList.remove('active');
-    document.body.classList.remove('sidebar-open');
-  }
-  function toggleSidebar() {
-    sidebar.classList.contains('active') ? closeSidebar() : openSidebar();
-  }
-
-  overlay.addEventListener('click', closeSidebar);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
-
-  /* ─ Navbar shadow au scroll ─ */
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
-  });
-
-  /* ─ Lien actif dans la sidebar selon l'URL courante ─ */
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.sidebar-link').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
-    }
-  });
-
-  /* ─ Apparition au scroll ─ */
+  /* ─ Reveal on scroll ─ */
   document.querySelectorAll('.reveal').forEach(el => {
     new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 }).observe(el);
-  });
-
-  /* ─ Smooth scroll ─ */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-    });
-  });
-
-  /* ══════════════════════════════════════════════════
-     VISIONNEUSE PDF — PDF.js + persistance IndexedDB
-     ══════════════════════════════════════════════════ */
-
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-  let pdfDoc         = null;
-  let currentPageNum = 1;
-  let zoomScale      = 1.0;
-  const canvas = document.getElementById('pdfCanvas');
-  const ctx    = canvas.getContext('2d');
-
-  /* ── IndexedDB : stockage du fichier PDF ── */
-  const DB_NAME    = 'portfolio_pdf_store';
-  const DB_VERSION = 1;
-  const STORE_NAME = 'pdfs';
-  const PDF_KEY    = 'canva_presentation';
-
-  function openDB() {
-    return new Promise((resolve, reject) => {
-      const req = indexedDB.open(DB_NAME, DB_VERSION);
-      req.onupgradeneeded = e => e.target.result.createObjectStore(STORE_NAME);
-      req.onsuccess = e => resolve(e.target.result);
-      req.onerror   = e => reject(e.target.error);
-    });
-  }
-
-  async function savePDFtoDB(arrayBuffer, filename) {
-    const db  = await openDB();
-    const tx  = db.transaction(STORE_NAME, 'readwrite');
-    tx.objectStore(STORE_NAME).put({ data: arrayBuffer, name: filename }, PDF_KEY);
-    return new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = rej; });
-  }
-
-  async function loadPDFfromDB() {
-    const db  = await openDB();
-    const tx  = db.transaction(STORE_NAME, 'readonly');
-    const req = tx.objectStore(STORE_NAME).get(PDF_KEY);
-    return new Promise((res, rej) => {
-      req.onsuccess = () => res(req.result || null);
-      req.onerror   = () => rej(req.error);
-    });
-  }
-
-  async function deletePDFfromDB() {
-    const db = await openDB();
-    const tx = db.transaction(STORE_NAME, 'readwrite');
-    tx.objectStore(STORE_NAME).delete(PDF_KEY);
-  }
-
-  /* ── Upload ── */
-  const pdfInput   = document.getElementById('pdfInput');
-  const uploadZone = document.getElementById('uploadZone');
-
-  pdfInput.addEventListener('change', e => {
-    if (e.target.files[0]) loadPDF(e.target.files[0]);
-  });
-
-  uploadZone.addEventListener('dragover',  e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
-  uploadZone.addEventListener('dragleave', ()  => uploadZone.classList.remove('dragover'));
-  uploadZone.addEventListener('drop', e => {
-    e.preventDefault();
-    uploadZone.classList.remove('dragover');
-    const file = e.dataTransfer.files[0];
-    if (file && file.type === 'application/pdf') loadPDF(file);
-  });
-
-  /* ── Chargement depuis un File (premier import) ── */
-  function loadPDF(file) {
-    uploadZone.style.display = 'none';
-    document.getElementById('pdfLoading').classList.add('visible');
-    document.getElementById('pdfFilename').textContent = file.name;
-
-    const reader = new FileReader();
-    reader.onload = async function(e) {
-      const arrayBuffer = e.target.result;
-      // Sauvegarde dans IndexedDB
-      await savePDFtoDB(arrayBuffer, file.name);
-      await initViewer(arrayBuffer);
-    };
-    reader.readAsArrayBuffer(file);
-  }
-
-  /* ── Initialisation du viewer depuis un ArrayBuffer ── */
-  async function initViewer(arrayBuffer) {
-    const typedarray = new Uint8Array(arrayBuffer);
-    pdfDoc = await pdfjsLib.getDocument({ data: typedarray }).promise;
-
-    document.getElementById('totalPages').textContent = pdfDoc.numPages;
-    currentPageNum = 1;
-
-    document.getElementById('pdfLoading').classList.remove('visible');
-    document.getElementById('pdfReader').classList.add('visible');
-
-    await renderPage(currentPageNum);
-    buildThumbnails();
-  }
-
-  /* ── Au chargement de la page : restaure depuis IndexedDB ── */
-  (async function restoreOnLoad() {
-    try {
-      const stored = await loadPDFfromDB();
-      if (stored) {
-        uploadZone.style.display = 'none';
-        document.getElementById('pdfLoading').classList.add('visible');
-        document.getElementById('pdfFilename').textContent = stored.name;
-        await initViewer(stored.data);
-      }
-    } catch (err) {
-      console.warn('Impossible de restaurer le PDF :', err);
-    }
-  })();
-
-  /* ── Rendu d'une page ── */
-  async function renderPage(num) {
-    const page     = await pdfDoc.getPage(num);
-    const viewport = page.getViewport({ scale: zoomScale * getAutoScale(page) });
-
-    canvas.width  = viewport.width;
-    canvas.height = viewport.height;
-
-    await page.render({ canvasContext: ctx, viewport }).promise;
-
-    document.getElementById('currentPage').textContent = num;
-    document.getElementById('prevBtn').disabled = num <= 1;
-    document.getElementById('nextBtn').disabled = num >= pdfDoc.numPages;
-    document.getElementById('progressBar').style.width =
-      ((num / pdfDoc.numPages) * 100) + '%';
-    document.getElementById('zoomLevel').textContent =
-      Math.round(zoomScale * 100) + '%';
-
-    document.querySelectorAll('.pdf-thumb').forEach((t, i) => {
-      t.classList.toggle('active', i + 1 === num);
-    });
-  }
-
-  /* ── Scale automatique ── */
-  function getAutoScale(page) {
-    const wrapper  = document.getElementById('canvasWrapper');
-    const maxWidth = wrapper.clientWidth - 64;
-    const vp       = page.getViewport({ scale: 1 });
-    return Math.min(maxWidth / vp.width, 1.6);
-  }
-
-  /* ── Navigation ── */
-  function changePage(delta) {
-    const newPage = currentPageNum + delta;
-    if (newPage < 1 || newPage > pdfDoc.numPages) return;
-    currentPageNum = newPage;
-    renderPage(currentPageNum);
-    canvas.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  /* ── Zoom ── */
-  function changeZoom(delta) {
-    zoomScale = Math.min(Math.max(zoomScale + delta, 0.5), 3.0);
-    renderPage(currentPageNum);
-  }
-
-  /* ── Miniatures ── */
-  async function buildThumbnails() {
-    const container = document.getElementById('pdfThumbnails');
-    container.innerHTML = '';
-    for (let i = 1; i <= pdfDoc.numPages; i++) {
-      const thumb = document.createElement('div');
-      thumb.className = 'pdf-thumb' + (i === 1 ? ' active' : '');
-      thumb.dataset.page = i;
-
-      const tc   = document.createElement('canvas');
-      const tctx = tc.getContext('2d');
-      const page = await pdfDoc.getPage(i);
-      const vp   = page.getViewport({ scale: 0.2 });
-      tc.width  = vp.width;
-      tc.height = vp.height;
-      await page.render({ canvasContext: tctx, viewport: vp }).promise;
-
-      thumb.appendChild(tc);
-      thumb.addEventListener('click', () => {
-        currentPageNum = i;
-        renderPage(currentPageNum);
-      });
-      container.appendChild(thumb);
-    }
-  }
-
-  /* ── Réinitialiser (supprime aussi de l'IndexedDB) ── */
-  async function resetViewer() {
-    await deletePDFfromDB();
-    pdfDoc = null;
-    currentPageNum = 1;
-    zoomScale = 1.0;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    document.getElementById('pdfReader').classList.remove('visible');
-    document.getElementById('pdfThumbnails').innerHTML = '';
-    pdfInput.value = '';
-    uploadZone.style.display = '';
-  }
-
-  /* ── Navigation clavier ── */
-  document.addEventListener('keydown', e => {
-    if (!pdfDoc) return;
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changePage(1);
-    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   changePage(-1);
   });
 </script>
 
